@@ -1,0 +1,23 @@
+<nav>
+    <a href="/" class="nav-logo">
+        <img src="./assets/images/logo.png" alt="Upholstery">
+    </a>
+    <button class="menu-toggle" type="button" {{on "click" this.toggleMenu}}>
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul class="{{if this.isMenuOpen 'active'}}">
+        <li class="nav-item {{if this.isHome 'active'}}">
+            <LinkTo @route="index">Home</LinkTo>
+
+            
+        </li>
+        <li class="nav-item {{if this.isGallery 'active'}}">
+            <LinkTo @route="gallery">Gallery</LinkTo>
+        </li>
+        <li class="nav-item {{if this.isContact 'active'}}">
+            <LinkTo @route="contact">Contact</LinkTo>
+        </li>
+    </ul>
+</nav>

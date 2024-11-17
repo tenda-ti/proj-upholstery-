@@ -1,0 +1,48 @@
+<div class="gallery-container">
+    <h1 class="gallery-title">Our Work</h1>
+    <div class="gallery-grid">
+        {{#each this.paginatedImages as |image|}}
+            <div class="gallery-item" {{on "click" (fn this.showImage image)}}>
+                <img src={{image.url}} alt={{image.title}} loading="lazy">
+                <div class="gallery-item-overlay">
+                    <h3>{{image.title}}</h3>
+                    <p>{{image.description}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="gallery-navigation">
+        {{#if this.hasMoreImages}}
+            <button 
+                type="button"
+                class="nav-btn next-btn" 
+                {{on "click" this.nextPage}}
+            >
+                View More <i class="fas fa-arrow-down"></i>
+            </button>
+        {{else if this.canShowLess}}
+            <button 
+                type="button"
+                class="nav-btn prev-btn" 
+                {{on "click" this.showLess}}
+            >
+                View Less <i class="fas fa-arrow-up"></i>
+            </button>
+        {{/if}}
+    </div>
+
+    {{#if this.selectedImage}}
+        <div class="gallery-modal {{if this.isModalOpen 'active'}}" {{on "click" this.closeModal}}>
+            <button class="modal-close" type="button" {{on "click" this.closeModal}}>&times;</button>
+            <img src={{this.selectedImage.url}} alt={{this.selectedImage.title}}>
+            <div class="modal-caption">
+                <h3>{{this.selectedImage.title}}</h3>
+                <p>{{this.selectedImage.description}}</p>
+            </div>
+        </div>
+    {{/if}}
+</div>
+
+
+

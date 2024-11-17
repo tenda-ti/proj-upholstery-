@@ -1,0 +1,92 @@
+<Hero />
+<div class="container">
+<div class="sectionA">
+    <div class="sectionA-content">
+        <div class="sectionA-image-container">  
+            <button class="nav-arrow prev-arrow" type="button" {{on "click" (fn this.handleManualNavigation this.previousImage)}}>&lt;</button>
+            <img class="sectionA-image" src={{this.currentImage}} alt="gallery image">
+            <button class="nav-arrow next-arrow" type="button" {{on "click" (fn this.handleManualNavigation this.nextImage)}}>&gt;</button>
+        </div>
+         
+        <div class="sectionA-text-container">
+            <h2 class="sectionA-title">Elevate Your Space, <span>One Stitch at a Time</span>.</h2>  
+            <p>Transform your home with our exquisite upholstery services. From classic to contemporary, we craft bespoke pieces that reflect your unique taste. Our skilled artisans meticulously reupholster your cherished furniture, breathing new life into your space.</p>
+
+        </div>
+    </div>
+</div>
+<div class="sectionB">
+    <div class="sectionB-content">
+        <div class="sectionB-item">
+            <div class="corner-accent"></div>
+            <h3>Custom Design</h3>
+            <p>Tailored solutions to fit your vision.</p>
+        </div>
+        <div class="sectionB-item">
+            <div class="corner-accent"></div>
+            <h3>Premium Fabrics</h3>
+            <p>A wide range of luxurious textiles.</p>
+        </div>
+        <div class="sectionB-item">
+            <div class="corner-accent"></div>
+            <h3>Expert Craftsmanship</h3>
+            <p>Meticulous attention to detail.</p>
+        </div>
+        <div class="sectionB-item">
+            <div class="corner-accent"></div>
+            <h3>Restoration Services</h3>
+            <p>Reviving antique and vintage pieces.</p>
+        </div>
+        <div class="sectionB-item">
+            <div class="corner-accent"></div>
+            <h3>On-Time Delivery</h3>
+            <p>Committed to meeting your deadlines.</p>
+        </div>
+    </div>
+</div>
+
+<div class="gallery-preview-section">
+    <h2 class="section-title">Our Recent Work</h2>
+    <div class="gallery-preview-grid">
+        {{#each this.previewImages as |image|}}
+            <div class="preview-item">
+                <img src={{image.url}} alt={{image.title}} loading="lazy">
+                <div class="preview-overlay">
+                    <h3>{{image.title}}</h3>
+                    <p>{{image.description}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+    <div class="preview-action">
+        <LinkTo @route="gallery" class="view-all-btn">
+            View All Projects <i class="fas fa-arrow-right"></i>
+        </LinkTo>
+    </div>
+</div>
+
+<div class="contact-section">
+    <h2 class="contact-title">
+        Get in Touch with Us
+        <span>We'd love to hear from you</span>
+    </h2>
+    <div class="contact-container">
+        <form class="contact-form" {{on "submit" this.handleSubmit}}>
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Your Name" required {{on "input" this.updateName}}>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Your Email" required {{on "input" this.updateEmail}}>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phone" placeholder="Phone Number" {{on "input" this.updatePhone}}>
+            </div>
+            <div class="form-group">
+                <textarea id="message" placeholder="Your Message" required {{on "input" this.updateMessage}}></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+</div>
+
+</div>
