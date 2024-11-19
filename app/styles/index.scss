@@ -685,7 +685,7 @@ span {
 
 @media (max-width: 768px) {
     .gallery-preview-section {
-        padding: 60px 0;
+        padding: 60px 20px;
 
         .section-title {
             font-size: 2rem;
@@ -703,6 +703,41 @@ span {
                 padding: 12px 25px;
                 font-size: 1rem;
             }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .sectionA {
+        padding: 50px 20px;
+        height: auto;
+        text-align: center;
+    }
+
+    .sectionA-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sectionA-image-container,
+    .sectionA-text-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .sectionB {
+        padding: 40px 20px;
+        height: auto;
+        text-align: center;
+    }
+
+    .gallery-preview-section {
+        padding: 60px 20px;
+
+        .gallery-preview-grid {
+            grid-template-columns: 1fr;
+            justify-items: center;
         }
     }
 }
