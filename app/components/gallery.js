@@ -35,7 +35,6 @@ export default class GalleryComponent extends Component {
     this.selectedImage = null;
     document.body.style.overflow = '';
   }
-
   @action
   nextPage() {
     this.currentPage++;

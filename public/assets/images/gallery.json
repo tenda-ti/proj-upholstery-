@@ -2,7 +2,7 @@
   "gallery": [
     {
       "id": 1,
-      "url": "./assets/images/img1.jpeg",
+      "url": "./assets/images/img1.jpg",
       "title": "Classic Restoration",
       "description": "Vintage chair restoration"
     },

@@ -2,13 +2,13 @@
     <h1 class="gallery-title">Our Work</h1>
     <div class="gallery-grid">
         {{#each this.paginatedImages as |image|}}
-            <div class="gallery-item" {{on "click" (fn this.showImage image)}}>
+            <button class="gallery-item" type="button" {{on "click" (fn this.showImage image)}}>
                 <img src={{image.url}} alt={{image.title}} loading="lazy">
                 <div class="gallery-item-overlay">
-                    <h3>{{image.title}}</h3>
+                    <span>{{image.title}}</span>
                     <p>{{image.description}}</p>
                 </div>
-            </div>
+            </button>
         {{/each}}
     </div>
 
@@ -33,14 +33,13 @@
     </div>
 
     {{#if this.selectedImage}}
-        <div class="gallery-modal {{if this.isModalOpen 'active'}}" {{on "click" this.closeModal}}>
-            <button class="modal-close" type="button" {{on "click" this.closeModal}}>&times;</button>
+        <button class="gallery-modal {{if this.isModalOpen 'active'}}" type="button" {{on "click" this.closeModal}}>
             <img src={{this.selectedImage.url}} alt={{this.selectedImage.title}}>
             <div class="modal-caption">
-                <h3>{{this.selectedImage.title}}</h3>
+                <span>{{this.selectedImage.title}}</span>
                 <p>{{this.selectedImage.description}}</p>
             </div>
-        </div>
+        </button>
     {{/if}}
 </div>
 
